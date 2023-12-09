@@ -1,0 +1,9 @@
+#[test]
+fn part$$part$$_$$file$$() {
+    let mut path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    path.push("inputs/$$file$$.txt");
+
+    let prompt = fs::read_to_string(path).unwrap();
+
+    assert_eq!(part$$part$$(prompt.to_string()), $$result$$);
+}

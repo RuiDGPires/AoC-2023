@@ -1,0 +1,6 @@
+[submodule "Templater"]
+	path = Templater
+	url = https://github.com/RuiDGPires/Templater
+[submodule "templater"]
+	path = templater
+	url = https://github.com/RuiDGPires/Templater
