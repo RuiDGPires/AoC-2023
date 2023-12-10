@@ -222,18 +222,12 @@ fn resolve_cell(pos: Pos, map: &Vec<Vec<char>>) -> char {
 }
 
 fn is_inside(pos: Pos, map: &Vec<Vec<char>>) -> bool {
-  let mut counter = 0;
-  let mut x = 0;
-
-  while x < pos.0 {
-      counter += match map[pos.1 as usize][x as usize]{
-        '|' | 'F' | '7' => 1,
-        _ => 0
-      };
-
-      x += 1
-  }
-  counter % 2 != 0
+    map[pos.1 as usize].iter().enumerate().filter(|(x, c)| {
+        *x < pos.0 as usize &&
+        (
+            **c == '|' || **c == 'F' || **c == '7'
+        )
+    }).count() % 2 != 0
 }
 
 pub fn part1(prompt: String) -> u64 {
