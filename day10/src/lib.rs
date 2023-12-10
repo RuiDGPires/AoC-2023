@@ -1,9 +1,7 @@
 #![allow(dead_code, unused_imports)]
 #[cfg(test)]
 mod tests;
-use regex::Regex;
 use std::collections::HashMap;
-use queues::*;
 
 #[derive(Debug, Clone, Copy, Hash)]
 struct Pos(i64, i64);
@@ -188,16 +186,16 @@ fn resolve_cell(pos: Pos, map: &Vec<Vec<char>>) -> char {
     let mut down = false;
 
     if let Some(c) = get_cell(&pos.left(), map) {
-        left = c != '.' && is_connected_right(c);
+        left = is_connected_right(c);
     }
     if let Some(c) = get_cell(&pos.right(), map) {
-        right = c != '.' && is_connected_left(c);
+        right = is_connected_left(c);
     }
     if let Some(c) = get_cell(&pos.up(), map) {
-        up = c != '.' && is_connected_down(c);
+        up = is_connected_down(c);
     }
     if let Some(c) = get_cell(&pos.down(), map) {
-        down = c != '.' && is_connected_up(c);
+        down = is_connected_up(c);
     }
 
     if right && left {

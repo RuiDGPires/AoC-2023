@@ -1,7 +1,6 @@
 #![allow(dead_code, unused_imports)]
 #[cfg(test)]
 mod tests;
-use regex::Regex;
 
 fn solve_line<T>(line: T)  -> i64 where T: Iterator<Item=i64>{
     let mut line = line.collect::<Vec<i64>>();
